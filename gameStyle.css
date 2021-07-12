@@ -1,0 +1,345 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    counter-reset: game;
+}
+input{
+    position: relative;
+    height: 80px;
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+}
+.container{
+    position: relative;
+    width: 300px;
+    height: 600px;
+    border: 10px solid #000;
+    border-radius: 30px;
+    background-color: #ccefff;
+}
+input:checked{
+    counter-increment: game;
+}
+.score::after{
+    content: counter(game);
+}
+.marcador{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: grid;
+    place-items: center;
+
+}
+.layer-1{           /* conejo */
+    position: absolute;
+    z-index: 1;
+    width: 80px;
+    height: 450px;
+    right: 60px;
+    bottom: 0;
+
+    animation-name: salto1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes salto1{
+    0%{
+        height: 450px;
+    }
+    30%{
+        height: 350px;
+    }
+    100%{
+        height: 450px;
+    }
+}
+
+.layer-2{           /* conejo */
+    position: absolute;
+    z-index: 2;
+    width: 80px;
+    height: 450px;
+    left: 60px;
+    bottom: 0;
+
+    animation-name: salto1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+.layer-3{           /* tierra */
+    z-index: 3;
+    position: absolute;
+    width: 220px;
+    height: 410px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    border-radius: 30px;
+    background-color: rgb(180, 124, 60);
+    box-shadow: 1px 17px 51px -1px rgba(0,0,0,0.71);
+}
+.layer-4{          /* conejo */
+    z-index: 4;
+    position: absolute;
+    width: 80px;
+    height: 350px;
+    left: 40px;
+    bottom: 0;
+
+    animation-name: salto2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes salto2{
+    0%{
+        height: 350px;
+    }
+    30%{
+        height: 250px;
+    }
+    100%{
+        height: 350px;
+    }
+}
+
+.layer-5{           /* tierra */
+    z-index: 5;
+    position: absolute;
+    width: 160px;
+    height: 310px;
+    left: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: rgb(180, 124, 60);
+    box-shadow: 1px 17px 51px -1px rgba(0,0,0,0.71);
+}
+.layer-6{         /* conejo */
+    z-index: 6;
+    position: absolute;
+    width: 80px;
+    height: 250px;
+    right: 40px;
+    bottom: 0;
+
+    animation-name: salto3;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes salto3{
+    0%{
+        height: 250px;
+    }
+    30%{
+        height: 150px;
+    }
+    100%{
+        height: 250px;
+    }
+}
+
+.layer-7{          /* tierra */
+    z-index: 7;
+    position: absolute;
+    width: 160px;
+    height: 210px;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: rgb(180, 124, 60);
+    box-shadow: 1px 17px 51px -1px rgba(0,0,0,0.71);
+}
+.layer-8{          /* argusto */
+    z-index: 8;
+    position: absolute;
+    width: 100px;
+    height: 120px;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(68, 136, 1);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 20px;
+}
+.layer-9{          /* argusto */
+    z-index: 9;
+    position: absolute;
+    width: 130px;
+    height: 110px;
+    left: 90px;
+    bottom: 0;
+    background-color: #fff;
+    border-radius: 20%;
+}
+.layer-10{          /* argusto */
+    z-index: 10;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(68, 136, 1);
+    border-bottom-right-radius: 20px;
+}
+
+/* conejo */
+.oreja__externa{
+    position: absolute;
+    height: 40px;
+    width: 20px;
+    background-color: #000;
+    border-radius: 80%;
+    top: -15px;
+}
+.left{
+    position: absolute;
+    left: 10px;
+}
+.right{
+    position: absolute;
+    right: 10px;
+}
+.oreja__interna{
+    position: absolute;
+    height: 30px;
+    width: 10px;
+    background-color: rgb(255, 212, 253);
+    border-radius: 80%;
+    left: 5px;
+    bottom: 0;
+}
+.cabeza{
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    top: 15px;
+    background-color: #000;
+    border-radius: 50px;
+}
+.eye__right{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 25px;
+    top: 10px;
+
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.eye__left{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    right: 25px;
+    top: 10px;
+
+    animation-name: parpadeo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes parpadeo {
+    0%{
+        height: 10px;
+    }
+    5%{
+        height: 2px;
+        transform: translate(0 , 4px);
+    }
+    10%{
+        height: 10px;
+        transform: translate(0 , 0px);
+    }
+}
+
+/* pasto */
+.pasto{
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(100, 201, 0);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.tierra{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 20px;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(107, 74, 37);
+}
+
+.borde{
+    width: 20px;
+    height: 20px;
+    
+    background: linear-gradient(135deg, rgb(100, 201, 0) 25%, transparent 25%) -10px 0,
+        linear-gradient(-135deg, rgb(100, 201, 0) 25%, transparent 25%) -10px 0,
+        linear-gradient(45deg, rgb(180, 124, 60) 25%, transparent 25%),
+        linear-gradient(-45deg, rgb(180, 124, 60) 25%, transparent 25%);
+}
+
+/* arbustos */
+.contorno1{
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgb(68, 136, 1);
+    top: -30px;
+    left: 20px
+}
+.contorno2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(68, 136, 1);
+    top: 0px;
+    left:-40px
+}
+.contorno4{
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: -30px;
+    left: 20px
+}
+.contorno5{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 0px;
+    left:-40px
+}
